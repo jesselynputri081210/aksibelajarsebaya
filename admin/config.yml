@@ -1,0 +1,102 @@
+backend:
+  name: github
+  repo: jesselynputri081210/aksibelajarsebaya
+  branch: abs-site-refresh
+
+site_url: https://aksi-belajar-sebaya.netlify.app
+display_url: https://aksi-belajar-sebaya.netlify.app
+logo_url: https://aksi-belajar-sebaya.netlify.app/favicon.ico
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "resources"
+    label: "Materi & Link"
+    files:
+      - name: "resources"
+        label: "Daftar Materi, PDF, dan Video"
+        file: "content/resources.json"
+        format: "json"
+        fields:
+          - label: "Konten"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} · {{fields.type}}"
+            fields:
+              - { label: "Judul", name: "title", widget: "string" }
+              - label: "Jenis"
+                name: "type"
+                widget: "select"
+                options: ["PDF", "Video YouTube", "Link", "Materi"]
+              - { label: "Deskripsi", name: "description", widget: "text", required: false }
+              - { label: "File PDF / gambar", name: "file", widget: "file", required: false }
+              - { label: "URL YouTube / tautan", name: "url", widget: "string", required: false }
+              - { label: "Kategori", name: "category", widget: "string", required: false }
+
+  - name: "practice"
+    label: "Practice Corner"
+    files:
+      - name: "practice"
+        label: "Paket Latihan"
+        file: "content/practice.json"
+        format: "json"
+        fields:
+          - label: "Level Mudah"
+            name: "easy"
+            widget: "list"
+            fields:
+              - { label: "Pertanyaan", name: "q", widget: "text" }
+              - { label: "Pilihan A", name: "option_a", widget: "string" }
+              - { label: "Pilihan B", name: "option_b", widget: "string" }
+              - { label: "Pilihan C", name: "option_c", widget: "string" }
+              - { label: "Jawaban benar (A/B/C)", name: "answer", widget: "select", options: ["A", "B", "C"] }
+              - { label: "Pembahasan", name: "explanation", widget: "text" }
+          - label: "Level Sedang"
+            name: "medium"
+            widget: "list"
+            fields:
+              - { label: "Pertanyaan", name: "q", widget: "text" }
+              - { label: "Pilihan A", name: "option_a", widget: "string" }
+              - { label: "Pilihan B", name: "option_b", widget: "string" }
+              - { label: "Pilihan C", name: "option_c", widget: "string" }
+              - { label: "Jawaban benar (A/B/C)", name: "answer", widget: "select", options: ["A", "B", "C"] }
+              - { label: "Pembahasan", name: "explanation", widget: "text" }
+          - label: "Level HOTS"
+            name: "hots"
+            widget: "list"
+            fields:
+              - { label: "Pertanyaan", name: "q", widget: "text" }
+              - { label: "Pilihan A", name: "option_a", widget: "string" }
+              - { label: "Pilihan B", name: "option_b", widget: "string" }
+              - { label: "Pilihan C", name: "option_c", widget: "string" }
+              - { label: "Jawaban benar (A/B/C)", name: "answer", widget: "select", options: ["A", "B", "C"] }
+              - { label: "Pembahasan", name: "explanation", widget: "text" }
+
+  - name: "weekly"
+    label: "Weekly Challenge"
+    files:
+      - name: "weekly"
+        label: "Paket Tantangan Mingguan"
+        file: "content/weekly-challenge.json"
+        format: "json"
+        fields:
+          - label: "Paket soal (siapkan beberapa paket)"
+            name: "packages"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nama paket", name: "title", widget: "string" }
+              - { label: "Catatan / tema", name: "theme", widget: "string", required: false }
+              - label: "Soal"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - { label: "Pertanyaan", name: "q", widget: "text" }
+                  - { label: "Pilihan A", name: "option_a", widget: "string" }
+                  - { label: "Pilihan B", name: "option_b", widget: "string" }
+                  - { label: "Pilihan C", name: "option_c", widget: "string" }
+                  - { label: "Jawaban benar (A/B/C)", name: "answer", widget: "select", options: ["A", "B", "C"] }
+                  - { label: "Pembahasan", name: "explanation", widget: "text" }
