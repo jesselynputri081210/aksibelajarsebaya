@@ -267,7 +267,7 @@ function makeRoomQuiz(topic){const bank=[
 ["After finding a matching keyword…",["Read context to verify","Stop without checking","Select automatically"],0,"Context confirms relevance."]];
 return bank.map((q,i)=>({q:q[0],o:q[1],a:q[2],e:q[3],d:i%3===0?"Mudah":i%3===1?"Sedang":"Tinggi"}))}
 // Keep each subject room aligned with the exact topic list requested.
-subjectRoomData.indo=subjectRoomData.indo.filter(x=>x.id!=="skimscan"&&x.id!=="inferensi");
+subjectRoomData.indo=subjectRoomData.indo.filter(x=>x.id!=="skimscan");const firstInferensi=subjectRoomData.indo.findIndex(x=>x.id==="inferensi");if(firstInferensi>=0)subjectRoomData.indo.splice(firstInferensi,1);
 subjectRoomData.english=subjectRoomData.english.filter(x=>x.id!=="skimscan");
 const enInference=subjectRoomData.english.find(x=>x.id==="inferencevocab");
 if(enInference){enInference.title="Inference";enInference.desc="Draw a logical conclusion from clues in the passage.";enInference.video="UmGa5EVHrr4";enInference.videoTitle="The Topic, Main Idea, Supporting Ideas and Inference";enInference.source="Profesor Paolo Astorga • YouTube";enInference.url="https://www.youtube.com/watch?v=UmGa5EVHrr4";enInference.explain="<h2>What is inference?</h2><p>An inference is a conclusion supported by clues in the passage and reasonable thinking. It may not be stated word for word, but you must be able to point to evidence.</p><h2>Example</h2><p>“Sara shook her wet umbrella and left wet footprints.” We can infer that it has probably been raining. The text gives clues; it does not state the weather directly.</p>";enInference.quiz=makeRoomQuiz("inference")}
@@ -278,7 +278,7 @@ if(indoExplicit){indoExplicit.video="aGX_uOtW6GE";indoExplicit.videoTitle="Infor
 const indoInference=subjectRoomData.indo.find(x=>x.id==="inferensi");
 if(indoInference){indoInference.video="UmGa5EVHrr4";indoInference.videoTitle="The Topic, Main Idea, Supporting Ideas and Inference";indoInference.source="Profesor Paolo Astorga • YouTube";indoInference.url="https://www.youtube.com/watch?v=UmGa5EVHrr4"}
 const enMain=subjectRoomData.english.find(x=>x.id==="mainidea");
-if(enMain){enMain.video="ORtdonxi5ZQ";enMain.videoTitle="Main Idea | Reading Comprehension";enMain.source="Edcent • YouTube (verified channel)";enMain.url="https://www.youtube.com/watch?v=ORtdonxi5ZQ"}
+if(enMain){enMain.title="Main Idea";enMain.video="ORtdonxi5ZQ";enMain.videoTitle="Main Idea | Reading Comprehension";enMain.source="Edcent • YouTube (verified channel)";enMain.url="https://www.youtube.com/watch?v=ORtdonxi5ZQ"}
 const enDetails=subjectRoomData.english.find(x=>x.id==="details");
 if(enDetails){enDetails.video="ORtdonxi5ZQ";enDetails.videoTitle="Main Idea and Supporting Details | Reading Comprehension";enDetails.source="Edcent • YouTube (verified channel)";enDetails.url="https://www.youtube.com/watch?v=ORtdonxi5ZQ"}
 const enVocab=subjectRoomData.english.find(x=>x.id==="vocabulary");
